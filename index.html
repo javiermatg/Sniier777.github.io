@@ -1,125 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <title>Hoja de Vida</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parque Central de Guatemala — Descúbrelo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#0b6e4f;
+      --accent-dark:#074b36;
+      --muted:#6b6b6b;
+      --card-bg: #ffffffcc;
+      --glass: rgba(255,255,255,0.85);
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f7fbf8 0%,#eef6f2 100%);color:#0f1720;line-height:1.5}
+
+    /* Navbar */
+    header{position:sticky;top:0;backdrop-filter: blur(4px);background:rgba(255,255,255,0.6);border-bottom:1px solid #eee;z-index:40}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .brand .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Playfair Display'}
+    .brand h1{font-size:1rem;margin:0}
+    .nav-links{display:flex;gap:1rem}
+    .nav-links a{ text-decoration:none;color:var(--muted);font-weight:600}
+    .cta{background:var(--accent);color:white;padding:.5rem .9rem;border-radius:8px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;align-items:center;gap:1rem;padding:2.8rem 0}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+    .hero .title{font-family:'Playfair Display';font-size:2.2rem;margin:0}
+    .hero p{color:var(--muted);margin:.6rem 0 1.2rem}
+    .hero .actions{display:flex;gap:.8rem}
+    .btn-outline{padding:.6rem .9rem;border-radius:8px;border:2px solid var(--accent);background:transparent;color:var(--accent);text-decoration:none;font-weight:700}
+
+    .hero-image{border-radius:12px;overflow:hidden;box-shadow:0 12px 24px rgba(10,20,10,0.08)}
+    .hero-image img{display:block;width:100%;height:100%;object-fit:cover;min-height:260px}
+
+    /* Sections */
+    section{padding:1.8rem 0}
+    h2{font-size:1.25rem;margin:0 0 .6rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{background:var(--card-bg);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(15,20,30,0.04)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .small{font-size:.9rem;color:var(--muted)}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    /* Map & info */
+    .map-wrap{border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+    iframe{width:100%;height:320px;border:0}
+
+    footer{padding:1.2rem 0;color:var(--muted);font-size:.9rem;text-align:center}
+
+    /* Responsive */
+    @media (min-width:720px){
+      .hero-grid{grid-template-columns:1fr 460px}
+      .hero .title{font-size:2.8rem}
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+      .gallery{grid-template-columns:repeat(4,1fr)}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:1fr}
+    }
+
+  </style>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <section class="contenedor-G">
-        <div class="izquierdo">
-            <div class="foto">
-              <img src="cv (2).jpg" class="img-thumbnail" alt="...">
-              
-            </div>
-            
-            
-            <div class="perfil">
-                <h2>Perfil</h2>
-                <hr>
-                <p>Establecerme y consolidarme en una empresa que me otorgue estabilidad laboral, que me permita aplicar los conocimientos adquiridos en los años de estudio, brindando lo mejor de mi cada día.</p>
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="bootstrap" viewBox="0 0 118 94">
-                  <title>Bootstrap</title>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
-                </symbol>
-                <symbol id="home" viewBox="0 0 16 16">
-                  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
-                </symbol>
-                <symbol id="speedometer2" viewBox="0 0 16 16">
-                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                  <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
-                </symbol>
-                <symbol id="table" viewBox="0 0 16 16">
-                    <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
-                </symbol>
-                
-              </svg>
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 300px;">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                  
-                  <span class="fs-4">Contacto</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                  <li class = "azul">
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                      17 ave. zona 12 VillaLobos 1
-                    </a>
-                  </li>
-                  <li class="azul">
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                      javiermatias246@gmail.com
-                    </a>
-                  </li>
-                  <li class="azul">
-                    <a href="#" class="nav-link link-dark">
-                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                      3286-0658
-                    </a>
-                  </li>
-                  
-                </ul>
-                <hr>
-                
-              </div>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">PG</div>
+          <div>
+            <h1>Parque Central — Guatemala</h1>
+            <div class="small">Corazón histórico de la Ciudad de Guatemala</div>
+          </div>
         </div>
-        
-        <div class="derecho">
-            <h1>Matías Guarcas <br> Javier Alejandro</h1>
-            
-            <h3>Estudiante de Ingeniería en Ciencias y Sistemas</h3>
+        <div class="nav-links">
+          <a href="#sobre">Sobre</a>
+          <a href="#atracciones">Atracciones</a>
+          <a href="#galeria">Galería</a>
+          <a href="#como-llegar">Cómo llegar</a>
+        </div>
+        <a class="cta" href="#contacto">Planifica tu visita</a>
+      </nav>
+    </div>
+  </header>
 
-            <div class="contenedor-info-der">
-                <h2>Habilidades</h2>
-                <hr>
-                <ul class="lista-derecho">
-                    <li>Trabajo en equipo</li>
-                    <li>Responsabilidad</li>
-                    <li>Proactivo</li>
-                    <li>Capacidad de análisis</li>
-                    
-                </ul>
-            </div>
-            <div class="contenedor-info-der">
-                <h2>Estudios</h2>
-                <hr>
-                <ul class="lista-derecho">
-                    <li>Bachillerato en computación con orientación Científica | Colegio Bilingüe IMB-PC</li>
-                    <li>5to Semestre de Ingeniería en Ciencias y Sistemas | Universad San Carlos de Guatemala</li>
-                    
-                    
-                </ul>
-            </div>
+  <main class="container">
 
-            <div class="contenedor-info-der">
-                <h2>Conocimientos</h2>
-                <hr>
-                <ul class="lista-derecho">
-                    <li>Uso de Pc, conocimientos de Windows</li>
-                    <li>Java avanzado, python intermedio, C++</li>
-                    <li>HTML5, CSS3, javaScript</li>
-                    <li>mySql</li>
-                    <li>GitHub</li>
-                    <li>Microsoft Office(Word, Excel)</li>
-                    <li>AutoCad</li>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h2 class="title">Parque Central de Guatemala — historia, cultura y vida</h2>
+          <p>Visita el corazón de la Ciudad de Guatemala: plazas arboladas, la Catedral, el Palacio Nacional y los mercados cercanos. Ideal para caminatas, fotografía y experiencias culturales.</p>
+          <div class="actions">
+            <a class="cta" href="#atracciones">Descubre</a>
+            <a class="btn-outline" href="#como-llegar">Cómo llegar</a>
+          </div>
 
-                    
-                    
-                </ul>
+          <div style="margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+            <div class="card" style="flex:1;min-width:220px">
+              <strong>Mejor hora:</strong>
+              <div class="small">Mañana y tarde (evitar las horas de mayor calor). Ideal al atardecer para fotografía.</div>
             </div>
+            <div class="card" style="flex:1;min-width:220px">
+              <strong>Entrada:</strong>
+              <div class="small">Acceso libre. Algunos museos y tours tienen costo.</div>
+            </div>
+          </div>
         </div>
 
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=2c6b6f6f1a4b0f4492b7c4b8f7a2f972" alt="Parque Central Guatemala">
+        </div>
+      </div>
     </section>
-    
-    
-    
+
+    <section id="sobre">
+      <h2>Sobre el Parque Central</h2>
+      <p class="small">El Parque Central es un punto histórico y cultural donde convergen monumentos emblemáticos, arquitectura colonial y circuitos turísticos que permiten conocer la identidad guatemalteca. Es un excelente punto de partida para explorar museos, mercados de artesanías y cafés tradicionales.</p>
+    </section>
+
+    <section id="atracciones">
+      <h2>Atracciones destacadas</h2>
+      <div class="grid-3" style="margin-top:.8rem">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1526481280698-3bfa7568e8b6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6d4b9b6e2c6a2e9a9b8f1c2d3e4f5a6b" alt="Catedral Metropolitana">
+          <h3 style="margin:.6rem 0 .2rem">Catedral Metropolitana</h3>
+          <div class="small">Arquitectura emblemática frente al parque; ideal para admirar la fachada y la historia religiosa de la ciudad.</div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1534854638093-bada1813ca06?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9d8f7b6a5c4b3a2b1c0d9e8f7a6b5c4d" alt="Palacio Nacional">
+          <h3 style="margin:.6rem 0 .2rem">Palacio Nacional de la Cultura</h3>
+          <div class="small">Exuberante edificio histórico con salones, museos y vistas al parque.</div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1564866657313-7f7f6d8a9f9a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1234567890abcdef1234567890abcdef" alt="Mercado">
+          <h3 style="margin:.6rem 0 .2rem">Mercados y artesanías</h3>
+          <div class="small">Puestos de artesanía, textiles y gastronomía local en las calles aledañas.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2>Galería</h2>
+      <div class="gallery" style="margin-top:.8rem">
+        <img src="https://images.unsplash.com/photo-1505765056270-6f7d6f9b9b6b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc1" alt="Galería 1">
+        <img src="https://images.unsplash.com/photo-1501601966654-5c5b6b0a1d2a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc2" alt="Galería 2">
+        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc3" alt="Galería 3">
+        <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc4" alt="Galería 4">
+      </div>
+    </section>
+
+    <section id="como-llegar">
+      <h2>Cómo llegar</h2>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:1rem;margin-top:.8rem">
+        <div>
+          <p class="small"><strong>Desde el Aeropuerto La Aurora:</strong> toma un taxi oficial o transporte privado hacia la Zona 1 — el trayecto toma aprox. 20-30 minutos según el tráfico.</p>
+          <p class="small"><strong>Transporte público:</strong> buses y taxis compartidos llegan a los alrededores; consulta rutas locales y toma precauciones con tus pertenencias.</p>
+          <p class="small"><strong>Consejo:</strong> camina con calzado cómodo, lleva agua y protege tus pertenencias en zonas concurridas.</p>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps?q=Parque+Central+Guatemala&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Parque Central"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Planifica tu visita</h2>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.8rem">
+        <div class="card" style="flex:1;min-width:260px">
+          <h3>Tours recomendados</h3>
+          <ul class="small" style="margin:0;padding-left:1.1rem">
+            <li>Tour histórico a pie (2 horas)</li>
+            <li>Ruta de cafés tradicionales</li>
+            <li>Tour de mercados y artesanías</li>
+          </ul>
+        </div>
+        <div class="card" style="flex:1;min-width:260px">
+          <h3>Contacto</h3>
+          <p class="small">Para grupos y reservas: <strong>info@visitaguatemala.gt</strong> o llama al <strong>+502 1234 5678</strong>.</p>
+          <a class="cta" href="mailto:info@visitaguatemala.gt">Enviar correo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2025 Parque Central — Guatemala. Página creada para promoción turística. Respeta los sitios históricos y sigue las indicaciones locales.
+    </div>
+  </footer>
+
 </body>
 </html>
