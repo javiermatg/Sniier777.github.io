@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Parque Central de Guatemala — Descúbrelo</title>
+  <title>Centro Histórico de Guatemala — Descúbrelo</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -46,6 +46,9 @@
     .card{background:var(--card-bg);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(15,20,30,0.04)}
     .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
     .small{font-size:.9rem;color:var(--muted)}
+    .btn-ver{margin-top:.5rem;display:inline-block;padding:.5rem .8rem;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:700;cursor:pointer}
+    .btn-ver:hover{background:var(--accent-dark)}
+
 
     /* Gallery */
     .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
@@ -56,6 +59,39 @@
     iframe{width:100%;height:320px;border:0}
 
     footer{padding:1.2rem 0;color:var(--muted);font-size:.9rem;text-align:center}
+
+    /* Modal */
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:1000;
+      left:0;top:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;
+      align-items:center;
+    }
+    .modal-content{
+      background:white;
+      padding:1.5rem;
+      border-radius:12px;
+      max-width:500px;
+      width:90%;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      position:relative;
+      text-align:center;
+    }
+    .modal-content h3{margin-top:0}
+    .modal-content img{width:100%;border-radius:8px;margin-bottom:1rem}
+    .close{
+      position:absolute;
+      right:12px;top:8px;
+      font-size:24px;
+      cursor:pointer;
+      color:#888;
+    }
+    .close:hover{color:black}
+
 
     /* Responsive */
     @media (min-width:720px){
@@ -79,7 +115,7 @@
         <div class="brand">
           <div class="logo">PG</div>
           <div>
-            <h1>Parque Central — Guatemala</h1>
+            <h1>Centro Histórico — Guatemala</h1>
             <div class="small">Corazón histórico de la Ciudad de Guatemala</div>
           </div>
         </div>
@@ -99,7 +135,7 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <h2 class="title">Parque Central de Guatemala — historia, cultura y vida</h2>
+          <h2 class="title">Centro Histórico de Guatemala — historia, cultura y vida</h2>
           <p>Visita el corazón de la Ciudad de Guatemala: plazas arboladas, la Catedral, el Palacio Nacional y los mercados cercanos. Ideal para caminatas, fotografía y experiencias culturales.</p>
           <div class="actions">
             <a class="cta" href="#atracciones">Descubre</a>
@@ -125,27 +161,40 @@
     </section>
 
     <section id="sobre">
-      <h2>Sobre el Parque Central</h2>
-      <p class="small">El Parque Central es un punto histórico y cultural donde convergen monumentos emblemáticos, arquitectura colonial y circuitos turísticos que permiten conocer la identidad guatemalteca. Es un excelente punto de partida para explorar museos, mercados de artesanías y cafés tradicionales.</p>
+      <h2>Sobre el Centro Histórico</h2>
+      <p class="small">El Centro Histórico es un punto histórico y cultural donde convergen monumentos emblemáticos, arquitectura colonial y circuitos turísticos que permiten conocer la identidad guatemalteca. Es un excelente punto de partida para explorar museos, mercados de artesanías y cafés tradicionales.</p>
+      <p class="small">El Centro Histórico de la Ciudad de Guatemala fue fundado en 1776 en el Valle de la Ermita, tras la destrucción de la anterior capital, Santiago de los Caballeros de Guatemala, por los terremotos de 1773. Su historia está marcada por la reconstrucción después de varios sismos, la evolución de estilos arquitectónicos como el neoclásico y barroco, y la consolidación como el corazón político, social y cultural del país. Actualmente, es el área original de la ciudad (zona 1) y un área protegida como Patrimonio Cultural de la Nación.</p>
+      <h4>Orígnes y funcación</h4>
+      <p class="small">La necesidad de una nueva capital surgió después de que la ciudad de Santiago de los Caballeros de Guatemala, fundada en 1524, fuera devastada por los terremotos de 1773.
+        La nueva ciudad fue fundada el 2 de enero de 1776 en el Valle de la Ermita.
+        Su trazado inicial se definió alrededor de la Plaza Mayor, con edificios oficiales organizados en su periferia. </p>
+      <h4>Evolución y Arquitectura</h4>  
+      <p class="small">La arquitectura inicial incorporó el estilo neoclásico, pero a lo largo del tiempo se han sumado influencias de estilos como el barroco, ecléctico, gótico, mudéjar, art nouveau y art deco.
+        Muchos edificios han sido reconstruidos en varias ocasiones debido a los sismos, como los de 1917 y 1976.
+        El trazado original de las calles y avenidas se mantiene prácticamente intacto desde 1900.</p>
+       
     </section>
 
     <section id="atracciones">
       <h2>Atracciones destacadas</h2>
       <div class="grid-3" style="margin-top:.8rem">
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1526481280698-3bfa7568e8b6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6d4b9b6e2c6a2e9a9b8f1c2d3e4f5a6b" alt="Catedral Metropolitana">
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npZjukolDGe5-CcmD1xgGyulY51-8pEAEj_ps-51lnB-24jmt2YvY811jlDF0On0cUqgKJ6lwfknxvUCKM-a6HjmX22sOlZiBJrag18vyMGiIXtY5dTexCRj8fXLLfR8r7vQiFJ=w243-h174-n-k-no-nu" alt="Catedral Metropolitana">
           <h3 style="margin:.6rem 0 .2rem">Catedral Metropolitana</h3>
           <div class="small">Arquitectura emblemática frente al parque; ideal para admirar la fachada y la historia religiosa de la ciudad.</div>
+          <div class="btn-ver" onclick="abrirModal('modal1')">Ver más detalles</div>
         </div>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1534854638093-bada1813ca06?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9d8f7b6a5c4b3a2b1c0d9e8f7a6b5c4d" alt="Palacio Nacional">
+          <img src="https://noticias.mcd.gob.gt/wp-content/uploads/2025/08/WhatsApp-Image-2025-08-13-at-10.46.15.jpeg" alt="Palacio Nacional">
           <h3 style="margin:.6rem 0 .2rem">Palacio Nacional de la Cultura</h3>
           <div class="small">Exuberante edificio histórico con salones, museos y vistas al parque.</div>
+          <div class="btn-ver" onclick="abrirModal('modal2')">Ver más detalles</div>
         </div>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1564866657313-7f7f6d8a9f9a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1234567890abcdef1234567890abcdef" alt="Mercado">
+          <img src="https://www.guatemala.com/fotos/201706/Mercado-Central-885x500.jpg" alt="Mercado">
           <h3 style="margin:.6rem 0 .2rem">Mercados y artesanías</h3>
           <div class="small">Puestos de artesanía, textiles y gastronomía local en las calles aledañas.</div>
+          <div class="btn-ver" onclick="abrirModal('modal3')">Ver más detalles</div>
         </div>
       </div>
     </section>
@@ -153,10 +202,14 @@
     <section id="galeria">
       <h2>Galería</h2>
       <div class="gallery" style="margin-top:.8rem">
-        <img src="https://images.unsplash.com/photo-1505765056270-6f7d6f9b9b6b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc1" alt="Galería 1">
-        <img src="https://images.unsplash.com/photo-1501601966654-5c5b6b0a1d2a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc2" alt="Galería 2">
-        <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc3" alt="Galería 3">
-        <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abc4" alt="Galería 4">
+        <img src="https://aprende.guatemala.com/wp-content/uploads/2023/08/Edificios-antiguos-en-el-Centro-Historico-de-la-Ciudad-de-Guatemala.jpg" alt="Galería 1">
+        <img src="https://www.prensalibre.com/wp-content/uploads/2019/08/21-FCH-DJI_0128.jpg?quality=52" alt="Galería 2">
+        <img src="https://www.revistagranitodearena.com/wp-content/uploads/2021/08/Club-Guatemala-antiguas-1024x701.jpg" alt="Galería 3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Edificios_en_el_Centro_Hist%C3%B3rico_de_la_Ciudad_de_Guatemala.jpg" alt="Galería 4">
+        <img src="https://www.guatemala.com/fotos/2019/09/Catedral-Metropolitana-885x500.jpg" alt="Galería 5">
+        <img src="https://aprende.guatemala.com/wp-content/uploads/2024/08/Historia-del-Hotel-Pan-American-en-la-Zona-1-capitalina-2.jpg" alt="Galería 6">
+        <img src="https://mapasdeguatemala.com/wp-content/uploads/2019/05/correos.jpg" alt="Galería 7">
+        <img src="https://www.revistagranitodearena.com/wp-content/uploads/2021/02/edificios-del-centro-historico-de-guatemala-hechos-con-cemento-progreso-centro-america.png" alt="Galería 8">
       </div>
     </section>
 
@@ -194,12 +247,50 @@
     </section>
 
   </main>
+  <!-- MODALES -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal('modal1')">&times;</span>
+      <h3>Catedral Metropolitana</h3>
+      <img src="https://www.guatemala.com/fotos/2019/09/Catedral-Metropolitana-885x500.jpg" alt="">
+      <p>Construida en el siglo XVIII, la Catedral Metropolitana es un símbolo espiritual e histórico de Guatemala. Su fachada neoclásica y sus torres gemelas se alzan sobre la Plaza de la Constitución.</p>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal('modal2')">&times;</span>
+      <h3>Palacio Nacional de la Cultura</h3>
+      <img src="https://archivo.prensa-latina.cu/wp-content/uploads/2022/12/Guatemala-Palacio.jpg" alt="">
+      <p>Antigua sede del gobierno, hoy museo y centro cultural. Destaca por su arquitectura monumental y sus murales que narran la historia del país.</p>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal('modal3')">&times;</span>
+      <h3>Mercados y artesanías</h3>
+      <img src="https://pbs.twimg.com/media/ClffLhwWYAAsEmq.jpg" alt="">
+      <p>Descubre el Mercado Central, lleno de color, cultura y sabor. Ideal para adquirir recuerdos, textiles típicos y probar comidas tradicionales.</p>
+    </div>
+  </div>
+
 
   <footer>
     <div class="container">
-      © 2025 Parque Central — Guatemala. Página creada para promoción turística. Respeta los sitios históricos y sigue las indicaciones locales.
+      © 2025 Centro Histórico — Guatemala. Página creada con el objetivo de fomentar el turismo cultural. Respeta los sitios históricos y sigue las indicaciones locales.
     </div>
   </footer>
+
+  <script>
+    function abrirModal(id){ document.getElementById(id).style.display='flex'; }
+    function cerrarModal(id){ document.getElementById(id).style.display='none'; }
+    window.onclick=function(e){
+      document.querySelectorAll('.modal').forEach(m=>{
+        if(e.target==m) m.style.display='none';
+      });
+    }
+  </script>
 
 </body>
 </html>
